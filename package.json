@@ -1,0 +1,26 @@
+{
+  "name": "bankers_algorithm",
+  "version": "1.0.0",
+  "description": "Node.js realization of Banker's algorithm",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SergejSKoreshkov/Bankers-algorithm.git"
+  },
+  "keywords": [
+    "banker",
+    "nodejs",
+    "node",
+    "js",
+    "algorithm"
+  ],
+  "author": "Sergej Koreshkov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SergejSKoreshkov/Bankers-algorithm/issues"
+  },
+  "homepage": "https://github.com/SergejSKoreshkov/Bankers-algorithm#readme"
+}
