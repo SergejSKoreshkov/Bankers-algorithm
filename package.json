@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/SergejSKoreshkov/Bankers-algorithm/issues"
   },
-  "homepage": "https://github.com/SergejSKoreshkov/Bankers-algorithm#readme"
+  "homepage": "https://github.com/SergejSKoreshkov/Bankers-algorithm#readme",
+  "dependencies": {
+    "dialog": "^0.3.1",
+    "dialog-node": "^0.2.1"
+  }
 }
