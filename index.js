@@ -1,8 +1,5 @@
 const dialog = require('dialog-node')
 
-const P = 3;
-const R = 1;
-
 const getUserValue = (text, label) => {
     return new Promise((resolve, reject) => {
         dialog.entry(text, label, 0, (code, val, stderr) => {
@@ -21,6 +18,9 @@ const calculateNeed = (need, maxm, allot) => {
 }
 
 const isSafe = (processes, avail, maxm, allot) => {
+    const P = maxm.length
+    const R = maxm[0].length
+
     let need = new Array(P).fill(0)
     need = need.map(el => {
         return new Array(R).fill(0)
@@ -61,21 +61,16 @@ const isSafe = (processes, avail, maxm, allot) => {
     return true
 }
 
-
-let processes = [1, 2, 3]
-
-let avail = [11]
-
-let maxm = [
-    [6],
-    [6],
-    [6]
-]
-
-let allot = [
-    [3],
-    [4],
-    [3]
-]
-
-isSafe(processes, avail, maxm, allot)
+getUserValue('Enter number of processes', 'Process count').then(processCount => {
+    const processes = new Array(parseInt(processCount)).fill(0).map((el, index) => { return index+1 })
+    getUserValue('Enter number of resources', 'Resources count').then(resourceCount => {
+        const avail = [ resourceCount ]
+        getUserValue('Enter maximum demand of each process in a system. Separate values by ";"', 'Maximum demand of each process').then(maxVal => {
+            const maxm = maxVal.split(';').map(el => [ el ])
+            getUserValue('Enter the number of resoursec of each type currently allocated to each process. Separate values by ";"', 'Number of allocated resources to each process').then(alloc => {
+                const allot = alloc.split(';').map(el => [ el ])
+                isSafe(processes, avail, maxm, allot)
+            })
+        })
+    })
+})
