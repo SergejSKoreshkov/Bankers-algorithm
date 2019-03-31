@@ -1,1 +1,1 @@
-# Banker's algorithm realization with Node.js
+# Banker's algorithm realization with Node.js + Vue.js version
